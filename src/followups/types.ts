@@ -132,8 +132,8 @@ export const FOLLOWUP_CONFIGS: Record<FollowupType, FollowupTypeConfig> = {
   'rx-pickup': {
     id: 'rx-pickup',
     name: 'Rx Pickup en cours',
-    emoji: '📞',
-    description: 'Récupération de prescriptions en cours',
+    emoji: '🏠',
+    description: 'Récupération de Rx chez le patient',
     fields: [
       {
         id: 'date_signale',
@@ -142,31 +142,31 @@ export const FOLLOWUP_CONFIGS: Record<FollowupType, FollowupTypeConfig> = {
         required: true
       },
       {
-        id: 'pharmacie_origine',
-        label: 'Pharmacie d\'origine',
+        id: 'adresse',
+        label: 'Adresse du patient',
         type: 'text',
         required: false,
-        placeholder: 'Nom de la pharmacie'
+        placeholder: 'Adresse ou notes de localisation'
       },
       {
-        id: 'medicaments',
-        label: 'Médicaments concernés',
+        id: 'quoi_recuperer',
+        label: 'Quoi récupérer',
         type: 'text',
         required: false,
-        placeholder: 'Liste des médicaments'
+        placeholder: 'Rx papier, médicaments, etc.'
       },
       {
-        id: 'recu',
-        label: 'Reçu',
+        id: 'recupere',
+        label: 'Récupéré',
         type: 'boolean',
         required: false
       }
     ],
     statuses: [
-      { value: 'demande', label: 'Demandé', emoji: '📨' },
-      { value: 'en_attente', label: 'En attente', emoji: '⏳' },
-      { value: 'relance', label: 'Relancé', emoji: '🔄' },
-      { value: 'recu', label: 'Reçu', emoji: '✅', isFinal: true },
+      { value: 'signale', label: 'Signalé', emoji: '📍' },
+      { value: 'planifie', label: 'Pickup planifié', emoji: '📅' },
+      { value: 'en_route', label: 'En route', emoji: '🚗' },
+      { value: 'recupere', label: 'Récupéré', emoji: '✅', isFinal: true },
       { value: 'annule', label: 'Annulé', emoji: '❌', isFinal: true }
     ]
   },
@@ -175,7 +175,7 @@ export const FOLLOWUP_CONFIGS: Record<FollowupType, FollowupTypeConfig> = {
     id: 'pilulier',
     name: 'Changement de pilulier',
     emoji: '💊',
-    description: 'Changements de piluliers en cours',
+    description: 'Patient qui commence ou transfère son pilulier',
     fields: [
       {
         id: 'date_echeance',
@@ -185,26 +185,35 @@ export const FOLLOWUP_CONFIGS: Record<FollowupType, FollowupTypeConfig> = {
       },
       {
         id: 'type_changement',
-        label: 'Type de changement',
+        label: 'Type',
         type: 'select',
-        required: false,
+        required: true,
         options: [
-          { value: 'nouveau', label: 'Nouveau pilulier' },
-          { value: 'modification', label: 'Modification' },
-          { value: 'arret', label: 'Arrêt pilulier' }
+          { value: 'nouveau', label: 'Nouveau patient pilulier' },
+          { value: 'transfert', label: 'Transfert d\'une autre pharmacie' },
+          { value: 'arret', label: 'Arrêt du service' }
         ]
       },
       {
-        id: 'medicaments',
-        label: 'Médicaments concernés',
+        id: 'ancienne_pharmacie',
+        label: 'Ancienne pharmacie (si transfert)',
         type: 'text',
         required: false,
-        placeholder: 'Changements de médicaments'
+        placeholder: 'Nom de la pharmacie'
+      },
+      {
+        id: 'notes_medication',
+        label: 'Notes sur la médication',
+        type: 'text',
+        required: false,
+        placeholder: 'Infos sur les médicaments du patient'
       }
     ],
     statuses: [
-      { value: 'planifie', label: 'Planifié', emoji: '📅' },
-      { value: 'en_cours', label: 'En cours', emoji: '🔄' },
+      { value: 'demande', label: 'Demande reçue', emoji: '📥' },
+      { value: 'collecte_info', label: 'Collecte d\'infos', emoji: '📋' },
+      { value: 'en_preparation', label: 'En préparation', emoji: '🔄' },
+      { value: 'pret', label: 'Prêt pour livraison', emoji: '📦' },
       { value: 'complete', label: 'Complété', emoji: '✅', isFinal: true },
       { value: 'annule', label: 'Annulé', emoji: '❌', isFinal: true }
     ]

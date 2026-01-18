@@ -393,10 +393,12 @@ export function buildMorningReport(followups: Followup[]): { blocks: KnownBlock[
       // Ajouter des détails pertinents selon le type
       if (type === 'magistrale' && data.pharmacie) {
         details = ` • Pharmacie: ${String(data.pharmacie).toUpperCase()}`;
-      } else if (type === 'pilulier' && data.date_echeance) {
-        details = ` • Échéance: ${data.date_echeance}`;
+      } else if (type === 'pilulier') {
+        const typeLabel = data.type_changement === 'nouveau' ? 'Nouveau' :
+                          data.type_changement === 'transfert' ? 'Transfert' : '';
+        details = ` • ${typeLabel}${data.date_echeance ? ` • Échéance: ${data.date_echeance}` : ''}`;
       } else if (type === 'rx-pickup' && data.date_signale) {
-        details = ` • Signalé: ${data.date_signale}`;
+        details = ` • Signalé: ${data.date_signale}${data.adresse ? ` • ${data.adresse}` : ''}`;
       }
 
       blocks.push({
