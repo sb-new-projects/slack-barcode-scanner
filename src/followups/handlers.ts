@@ -42,9 +42,9 @@ export function registerHandlers(app: App): void {
         }
 
         const typeEmojis: Record<string, string> = {
-          magistrale: '🧪',
+          magistrale: '🥼',
           'suivis-importants': '⚠️',
-          'rx-pickup': '🏠',
+          'rx-pickup': '🚗',
           pilulier: '💊'
         };
 

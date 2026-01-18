@@ -32,7 +32,7 @@ export const FOLLOWUP_CONFIGS: Record<FollowupType, FollowupTypeConfig> = {
   magistrale: {
     id: 'magistrale',
     name: 'Commande Magistrale',
-    emoji: '🧪',
+    emoji: '🥼',
     description: 'Suivi des préparations magistrales',
     fields: [
       {
@@ -132,7 +132,7 @@ export const FOLLOWUP_CONFIGS: Record<FollowupType, FollowupTypeConfig> = {
   'rx-pickup': {
     id: 'rx-pickup',
     name: 'Rx Pickup en cours',
-    emoji: '🏠',
+    emoji: '🚗',
     description: 'Récupération de Rx chez le patient',
     fields: [
       {
