@@ -1,0 +1,28 @@
+{
+  "name": "slack-barcode-scanner",
+  "version": "1.0.0",
+  "description": "Suivi des cas importants pour l'équipe de pharmacie - #pharmacien-nes",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@slack/bolt": "^3.17.0",
+    "better-sqlite3": "^9.4.3",
+    "node-cron": "^3.0.3",
+    "dotenv": "^16.4.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.8",
+    "@types/node": "^20.11.0",
+    "@types/node-cron": "^3.0.11",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
