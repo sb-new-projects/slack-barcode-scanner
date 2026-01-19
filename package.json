@@ -11,16 +11,18 @@
   },
   "dependencies": {
     "@slack/bolt": "^3.17.0",
+    "axios": "^1.6.7",
     "better-sqlite3": "^9.4.3",
-    "node-cron": "^3.0.3",
-    "dotenv": "^16.4.1"
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.4.1",
+    "node-cron": "^3.0.3"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.8",
     "@types/node": "^20.11.0",
     "@types/node-cron": "^3.0.11",
-    "typescript": "^5.3.3",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   },
   "engines": {
     "node": ">=18.0.0"
